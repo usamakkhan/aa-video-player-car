@@ -1,0 +1,326 @@
+AA CARPLAY VIDEO — REVERSE ENGINEERING DOSSIER
+Analysis date: 2026-10-11 (user timezone)
+
+SCOPE AND CONCLUSION
+====================
+This is AA CarPlay Video, package com.aacarplayvideo.app, versionName 1.2, versionCode 202. It is a native Android media dashboard with a separately bundled FreeTube web application. The artifacts contain Android Auto integration; they do not demonstrate Apple CarPlay protocol support.
+
+This report covers all four supplied APKs, their recovered resources, all four DEX containers, native library symbols, disassembly and decompiler output, web bundle structure, major app flows, persistence, network contracts, billing/licensing and external module boundaries. Static code proves implementation is present; it does not prove a feature succeeds on a particular head unit or remote service.
+
+Recovery is extensive but is not a claim of complete original-source recovery or full behavioral equivalence. Original Kotlin source names, comments, build configuration and server implementations are absent. The follow-up pass recovered instruction-level FALLBACK output for all 53 classes flagged by the original decompiler, including the three previously unresolved app-related classes; these outputs are not buildable original Java. Downloadable VLC/TTS code remains absent and is retained as traced components at the user's request. The phone was locked during the recorded UI capture and disconnected during the follow-up, so screen interaction and playback remain unverified.
+
+FOLLOW-UP COMPLETENESS AUDIT
+============================
+All 138 tools in the installed REA catalog were reviewed for applicability. reverse-engineering-tool-audit.csv records each tool, status, and reason. This is not a claim that all 138 were invoked: tools for Apple binaries, .NET, firmware, EVM, paired versions, missing runtimes and unsupported host/architecture combinations cannot supply valid evidence for this APK set. Applicable work also used standalone JADX, baksmali, Ghidra, Capstone, pyelftools, APK signature verification, Babel, SQLite and isolated Node replay.
+
+The full Smali index contains 11,355 class declarations, 71,259 method declarations, 330,223 direct invoke sites and 50,114 distinct referenced targets. The compressed method index includes source lines, call sites, strings, branches and exception-handler declarations. These are symbolic call references, not complete dynamic dispatch resolution.
+
+The original decompiler marked 53 classes with errors/failure markers. All 53 now have FALLBACK output with no remaining Method-not-decompiled stub or JADX ERROR marker in that pass. This closes missing textual recovery for those classes; register-level output still needs type and control-flow interpretation. See fallback-complete/coverage.json, recover-complete-gaps.js and difficult-method-evidence.json.
+
+REA independently parsed four shipped JavaScript files without parse failures or truncated scopes and visited 835,664 AST nodes. Its application graph has 198 nodes and 268 edges; its semantic graph has 22,294 nodes, 2,308 relations and 79,030 conservative unknown records. Those unknowns are unresolved syntax/flow candidates, not 79,030 vulnerabilities. A writeFile provenance query returned no matching seeds and partial status, so it does not validate bridge behavior. The full evidence is retained locally; rea-analysis-summary.json gives the coverage and limitations.
+
+Controlled replay of exact extracted storage functions confirmed the failed-write ReferenceError and the uri/directory round-trip mismatch; a correctly shaped directory control fixture passed. The bridge was mocked and no installed-app data was touched. storage-contract-tests.json records the exact fragment hash and outcomes.
+
+Standalone Ghidra identified 38 DataStore and 1,696 FFmpeg function records and produced C-like output for 38 and 1,695 respectively, including all 13 JNI exports. Of these entries, 32 DataStore and 1,602 FFmpeg entries map to file-backed executable sections; others include synthetic external stubs. FFmpeg FUN_001919e0 (ELF address 0x919e0, 2,424-byte body) remains a high-level decompiler failure after three alternate attempts. Its complete instruction/P-code listing, three callers and six callees are preserved in FUN_001919e0-evidence.txt. It calls ff_mpeg4audio_get_config_gb, but an exact source-level algorithm identity is not asserted. Warning comments and all failed-function details are retained in native-decompilation-summary.json and per-library warning indexes.
+
+There is no defensible single percentage for complete reverse engineering: byte recovery, readable decompilation, semantic understanding, runtime validation and original-build equivalence are different measures. The remaining limits are listed explicitly instead of being treated as completed.
+
+PREVIOUSLY DIFFICULT METHODS
+============================
+uw.g(sq, continuation): coroutine that selects an IPTV dashboard recommendation. It reads up to 20 watch-progress entries and returns the first existing non-live channel with the continue-watching label. Otherwise it queries VOD for the active playlist, randomly chooses an item with rating at least 7 and a nonblank poster, falls back to any VOD with a poster, then any series with a poster, or returns null. Malformed rating text is treated as zero. lb0.I performs random list selection. Sources: fallback-complete/defpackage/uw.java, method g; raw Smali call/branch evidence in difficult-method-evidence.json.
+
+pu1.F(PlaybackStateCompat): updates stored playback state, broadcasts to registered remote media-controller callbacks while holding the session lock, ignores RemoteException per callback, finishes the broadcast, constructs/caches an Android PlaybackState with actions, buffering, errors, custom actions, queue ID and extras, then applies it to MediaSession. This is media-session compatibility behavior, not an additional licensing or network feature. Source: fallback-complete/defpackage/pu1.java, method F.
+
+bt.invokeSuspend: R8 merged coroutine dispatcher, not one coherent feature. The discriminator dispatches 11 branches covering deferred helpers and UI/data operations including Radio Garden search, podcast results, channel/EPG panels, playlist/recycler updates, favorites, music and loading UI. The full instruction listing and direct call/string/branch indexes are recovered. Its merged register types and coroutine continuations must not be read as ordinary compilable Java. Sources: fallback-complete/defpackage/bt.java and difficult-method-evidence.json.
+
+IDENTITY AND ARTIFACT INTEGRITY
+===============================
+Package: com.aacarplayvideo.app
+Display/version: AA CarPlay Video / 1.2 (202)
+Minimum SDK: 32; target and compile SDK: 37, as encoded in this artifact.
+Packaged CPU: ARM64-v8a. Language split: English. Density split: xxhdpi.
+Base SHA-256: e0869f758b241fb32748b78b5ad0cf2bb7da1dd532f20b9b95db6d1ddb99d29c
+Signer SHA-256: 611b78c6d8a619363364b398f702ae3086240df58f9bb8df1e8677830e7e1b95
+All four APKs pass the Android apksig verifier, using APK Signature Scheme v3, without reported errors or warnings. The certificate matches the fingerprint checked by hm1.isAppSignatureValid(). A certificate's subject is not independent evidence of authorship.
+
+Evidence: apk-inventory.json; signature-verification.json; jadx/resources/AndroidManifest.xml; jadx/sources/defpackage/hm1.java.
+The app files were not patched or rebuilt. verification.json records CRC, extraction-byte, hash, class-count, and schema checks.
+
+ARCHITECTURE AND STARTUP
+========================
+Manifest Application → com.pairip.application.Application → AACarPlayVideoApp.
+The Pairip wrapper invokes Play licensing, while the app initializes Hilt, locale handling, NewPipe, a proof-of-origin token provider, Crashlytics-related initialization and a local crash-log handler.
+
+Phone launcher → MobileMainActivity → shared sq controller → st dashboard registry.
+Legacy Android Auto projection → AACarPlayCarService → MainCarActivity → the same sq UI/controller. The car activity hides host header/menu controls, attaches the shared native view, starts and binds AACarPlayMediaService, and forwards media keys.
+AndroidX car template route → YouTubeCarAppService → sj3 → license gate → o50/i13 screen/surface infrastructure. The manifest declares NAVIGATION, ACCESS_SURFACE and minimum car API level 7. This is a distinct integration path from the legacy projection service.
+Media routing → AACarPlayMediaService → current sq module/player. Native ExoPlayer instances, WebViews and FreeTube have separate playback paths, coordinated through media-session metadata and commands.
+
+The primary UI is built programmatically with Android Views, LinearLayouts, FrameLayouts and native media widgets. Most implementation identifiers were shortened by R8 and live in JADX's synthetic defpackage namespace. semantic-class-map.csv maps important recovered identifiers to inferred roles without renaming the original evidence.
+
+Evidence: named app classes under jadx/sources/com/aacarplayvideo/app; defpackage/sq.java, st.java, zp.java, rj0.java, sj3.java, i13.java.
+
+DASHBOARD AND FEATURE MAP
+=========================
+16. YouTube
+Entry: ld4.e → n30 / e40 / r22
+Native YouTube interface, NewPipe extraction, alternate Innertube clients, Media3 playback.
+
+4. YouTube Web
+Entry: zp case 7 → e41 → a41
+Local FreeTube application at file:///android_asset/index.html, Vue and Shaka.
+
+19. YouTube Classic
+Entry: gd4.c
+Mobile YouTube WebView.
+
+14. YouTube Kids
+Entry: jd4.d
+YouTube Kids WebView at www.youtubekids.com.
+
+15. YouTube Music
+Entry: zp case 14 / am3
+Music YouTube WebView and authenticated Innertube request support.
+
+5. Web Browser
+Entry: cj0.g / i71
+General browsing, Google search, bookmarks and browsing history.
+
+6. TV / IPTV
+Entry: uw.u / nj3 / kj3
+M3U and Xtream playlists, live/VOD/series, EPG, favorites, playback progress.
+
+1. File Manager
+Entry: wb4.f
+Local file navigation and document access.
+
+2. Video Player
+Entry: x10.h
+Local video playback and playback history.
+
+3. Photo Gallery
+Entry: zp cases 22 / 5
+Local image gallery.
+
+9. Radio
+Entry: vz.z / kz / dm
+Radio Browser and Radio Garden discovery, stream playback, multiple proxy fallbacks.
+
+10. Music
+Entry: fy.o / kq1 / il1
+Local audio playback with lyric lookup through LRCLIB and Kugou.
+
+11. Speedometer
+Entry: pc4.g
+Location-based speed display; runtime accuracy and units not tested.
+
+12. Screen Mirror
+Entry: a00.f / ScreenMirrorService / hs4
+MediaProjection to a display surface, AccessibilityService gesture forwarding.
+
+13. Podcast
+Entry: cz.l / ha2
+Podcast discovery and subscriptions, feed parsing, episode progress/download metadata.
+
+17. News
+Entry: ly.e / w22 / cd4
+RSS news feeds and text-to-speech support.
+
+18. Movies & Series
+Entry: p10.d / jy2 / g10
+Stremio-compatible add-on manifests, catalogs, metadata and stream requests; torrent-only items are marked unsupported.
+
+20. Vehicle Maintenance
+Entry: ic4.h
+Service dates, odometer values, due dates, due mileage and notes.
+
+8. Settings
+Entry: l00.h
+Appearance, language, module order, playback and device integration settings.
+
+These are the 19 actual entries constructed by st.c. The default order is [16,5,6,18,1,2,3,9,10,11,13,17,8,12,14,4,15,19,20]. Module order is persisted as module_order; last_module_id and home_grid_columns also affect the dashboard. Asset strings alone were not used as proof that a module is connected to the UI.
+
+YOUTUBE AND FREETUBE EXECUTION PATHS
+====================================
+The primary native YouTube path uses r22 with NewPipe's YoutubeService, a proof-of-origin token provider (w92), and separate iOS, Android/VR, mobile-web and web player request implementations. qi2/pi2 can update client versions from the publisher's client-versions.json and persist valid values. Exact fallback success and remote API compatibility are untested.
+
+Native playback e40.c chooses HLS for live/HLS results, DASH for DASH results, progressive sources otherwise, and merges separate video/audio streams and subtitles when supplied. l30.l creates ExoPlayer with a DefaultTrackSelector and configured buffer durations (50,000 / 60,000 / 2,500 / 5,000 ms). Restore position, playback speed and media metadata are applied. Separate SponsorBlock and DeArrow clients appear in uw2 and ml0.
+
+YouTube Web is the bundled FreeTube path, not m.youtube.com: zp case 7 loads file:///android_asset/index.html into e41. Its web bundle contains Vue runtime 3.5.41, vue-router 5.2.0, Shaka Player, localForage 1.10.0 and DOMPurify 3.4.13 according to shipped license text. Version labels are artifact declarations, not upstream release verification. About content explicitly references FreeTubeCordova/FreeTubeAndroid and FreeTube; this establishes shipped attribution, not an exact source commit match.
+
+web.readable.js is a formatting-derived version of the 2,970,926-byte original bundle. 74 webpack module fragments are saved in web-modules; the surrounding application code remains in web.readable.js because it was bundled into the bootstrap closure. Fragments are inspection aids, not standalone runnable source modules. The AST inventory recovers 16 routes and 104 named setup/render component objects, not necessarily every Vue component.
+
+The web default settings object starts at web.readable.js:47084. Defaults include local backend, backend fallback disabled, 720 quality, DASH format, saved viewing/search history, automatic watched progress, autoplay, a three-hour autoplay interruption interval, and disabled update checks. Invidious instances are bundled as fallback/service options. SponsorBlock and DeArrow settings are present. These web defaults are distinct from native app preferences.
+
+FreeTube storage uses NeDB-style newline JSON files: profiles.db, settings.db, history.db, playlists.db, search-history.db and subscription-cache.db. A data-location.json file maps an optional selected document tree. Settings use {_id, value}; profiles include subscriptions. Native Room YouTube history/watch-later data is separate from these web databases.
+
+WEB-TO-ANDROID CONTRACT
+=======================
+e41 exposes a41 under the global name Android. There are 30 annotated methods in this interface and 48 annotated methods across all recovered bridge classes.
+
+Asynchronous calls return an identifier immediately. The JavaScript Xv helper subscribes to <id>-resolve and <id>-reject DOM events, then reads the payload using Android.getSyncMessage(id). Native getSyncMessage removes the payload after reading. File picker, read, write, append and token operations use this pattern. The web bundle's AST inventory contains direct bridge call sites; indirect calls can be missed.
+
+File methods: readFile, writeFile, appendFile, createFileInTree, listFilesInDataDir, listFilesInTree, getDirectory, requestDirectoryAccessDialog, requestOpenDialog, requestSaveDialog, revokePermissionForTree.
+Media methods: createMediaSession, updateMediaSessionData, updateMediaSessionState, cancelMediaNotification, enableKeepScreenOn, disableKeepScreenOn.
+UI/lifecycle methods: setScale, themeSystemUi, getSystemTheme, hideSplashScreen, enterPromptMode, exitPromptMode, isAppPaused, restart, openExternalLink, getLogs.
+Token/script methods: generatePOToken, runDecipherScript, getSyncMessage.
+
+Native events include media-seek, console-message, youtube-link and app-resume. isAppPaused currently returns false in the recovered Android implementation. The data:// URI helper maps a suffix beneath the parent of getExternalFilesDir(null); other URIs are passed to ContentResolver/document APIs. No canonical-path check is visible in that helper.
+
+Other bridge classes support YouTube click interception, music track clicks, focused HTML inputs and token/decipher callback delivery. See javascript-bridges.csv for every annotated signature and source line, and web-inventory.json for direct web calls.
+
+Navigation: c41 routes matching YouTube links back into the web application as an event and opens other non-file URLs externally. This reduces exposure to arbitrary top-level navigation, but is not proof that every frame/script boundary is isolated.
+
+IPTV, STREMIO, RADIO AND SECONDARY SERVICES
+===========================================
+IPTV: nj3 constructs Xtream player_api.php requests with username and password parameters and actions for categories, live streams, series, VOD details and short EPG. XMLTV URLs use xmltv.php with the same credentials. M3U import and IPTV-org country playlist selection are present. EPG parsing is in kj3; a simplified recovery is provided. Room persists categories, channels, provider credentials, EPG, favorites and progress. Runtime validity of user-supplied streams is not assessed.
+
+Stremio: jy2 derives /catalog/{type}/{id}[/{extra}].json, /stream/{type}/{id}.json and related metadata paths from add-on manifest URLs. Catalog response caching has a 900,000 ms branch. Stream objects preserve url, externalUrl, infoHash, ytId, display names and behaviorHints.proxyHeaders.request. The UI explicitly labels unsupported torrent-only streams; presence of infoHash parsing does not mean an embedded torrent engine is included.
+
+Radio: Radio Browser endpoints include de1, de2, fi1 and all.api.radio-browser.info. Radio Garden discovery/listen requests also exist. dm contains fallback URL builders for CodeTabs, corsproxy.io, AllOrigins and an app-specific Cloudflare Worker. These are request destinations found in code, not an observed network trace.
+
+Podcasts: Apple directory and Podcast Index search code, RSS feed subscriptions, episode progress, completion and downloaded-file metadata are present. Lyrics: LRCLIB get/search and Kugou search/download clients are included.
+
+News/weather: Google News and locale-specific RSS sources, including BBC feeds, support the news UI. Weather uses Open-Meteo; one fallback uses unencrypted http://ip-api.com/json for coarse geolocation. The voice path can use a separately delivered premium TTS module. The speedometer uses location-related APIs; vehicle maintenance stores user-entered records.
+
+STORAGE AND DATA MODEL
+======================
+Native database: aa_car_play_video.db, Room schema version 13; its DDL contains 21 application tables plus room_master_table. The recovered SQL executes successfully in an empty in-memory SQLite database. This checks schema syntax/structure, not database migration correctness.
+
+Application tables:
+bookmarks, browsing_history, categories, channels, epg_programs, favorite_channels, favorite_folders, iptv_playlists, maintenance_records, playback_history, playlist_videos, playlists, podcast_episodes, podcast_subscriptions, stremio_addons, stremio_progress, vod_info, watch_history, watch_progress, yt_subscriptions, yt_watch_later
+
+Important relationships: playlist_videos references playlists; channels and categories reference iptv_playlists; podcast_episodes references podcast_subscriptions. EPG has a unique channelId/startTime index. Full columns, keys and constraints are in database-schema.sql and database-schema.json.
+
+Preferences: aa_car_play_prefs holds general native settings, UI language, module order and other feature state. aa_license_secure stores license/trial state; aa_play_billing stores purchase ownership. Both license and billing paths prefer EncryptedSharedPreferences with Android keystore-backed AES schemes, but have fallback branches to ordinary SharedPreferences if initialization fails. Legacy license keys are migrated out of aa_car_play_prefs.
+
+The shipped backup configuration enables backup and has empty cloud/device-transfer exclusion rules. IPTV usernames/passwords are declared as TEXT database fields and are bound by DAO code; no SQLCipher database setup was found in the reviewed creation path. Device encryption, backup policy and actual stored values were not inspected.
+
+The key candidate inventory is deliberately named literal-key-candidates.csv: its syntax-based extraction also catches JSON getters and is not an authoritative list of SharedPreferences keys. No personal app databases, cookies or license values were extracted from the phone.
+
+LICENSING, PURCHASES AND SERVER CONTRACTS
+=========================================
+There are three relevant layers: Pairip's Play license wrapper, Google Play Billing lifetime purchase handling, and publisher license/trial validation.
+
+Google Play product: lifetime_license, type inapp. h92/g92/xp handle querying purchases, acknowledging purchases and an encrypted owned cache. Local entitlement checks consult that cache. This is a recovered client-side policy, not a verification of the publisher's backend purchase accounting.
+
+Publisher API contracts inferred from call sites:
+POST https://aacarplayvideo.com/api/license.php
+JSON request: license_key (trimmed/uppercased), device_id (Android ID), device_name (manufacturer/model), api_secret.
+JSON response: valid, revoked, message, expires_at (optional).
+
+POST https://aacarplayvideo.com/api/trial.php
+JSON request: device_id, device_name, api_secret.
+JSON response: trial_active, remaining_hours, remaining_minutes, message.
+
+The shared API credential is reversibly encoded in ze0.a; it is not reproduced in this report. No requests were sent manually to license or trial endpoints. The license HTTP client uses 15-second connection/read timeouts and certificate pinning for aacarplayvideo.com.
+
+hm1 checks the installed signing certificate. isLicensed combines signing validation with purchase ownership, a valid cached key or an active trial; hasFullLicense excludes trials. Key cache validation checks expires_at and integer elapsed days <= 7, reduced to <= 1 when clock rollback is detected. Trial cache validity uses an elapsed-hours < 2 condition; trialRemainingMs additionally uses server remaining time or a 24-hour fallback from trial_start_time. The separate network exception fallback in gm1 returns a cached positive result without applying the same age calculation inside that method. These are branch descriptions, not proof of an externally exploitable bypass.
+
+GET https://aacarplayvideo.com/client-versions.json supplies optional ios, android_vr and mweb version strings, validated by a regex before persistence. Server-side license state, fraud controls and remote response correctness cannot be derived from these APKs.
+
+CAR INTEGRATION, MIRRORING AND PERMISSIONS
+==========================================
+The manifest declares media, navigation, projection and template automotive uses. It exports legacy car projection, AndroidX car and media-browser services. YouTubeCarAppService creates a host validator and gates its first screen on hasFullLicense. Template availability and acceptance by a particular Android Auto host remain untested.
+
+ScreenMirrorActivity/phone activity request MediaProjection consent, then pass resultCode/projectionData into a non-exported foreground ScreenMirrorService. yp2 creates a virtual display targeting the supplied surface, acquires a time-bounded wakelock and optionally changes brightness/rotation when WRITE_SETTINGS is granted. ScreenMirrorService has cleanup/restoration branches. TouchForwardService is guarded by BIND_ACCESSIBILITY_SERVICE, and hs4 dispatches gestures with in-flight tracking, a 33 ms throttle check, 50 ms strokes and at most two tracked touch points. Users must enable this service and grant projection themselves.
+
+MediaKeyBridgeReceiver is exported but checks a PendingIntent creator package against com.aacarplayvideo.app.media before forwarding keycode to the active media service. It is not treated as an unauthenticated arbitrary-control interface merely because exported=true.
+
+Permissions span internet/network status, media reading, microphone/audio settings, notifications, overlay, foreground playback/projection/data-sync, wakelock, write settings, location, billing and boot receive. Declared permission does not prove it is granted or actively used. Full declarations/components are in manifest-inventory.json.
+
+NATIVE BINARIES AND MISSING DYNAMIC MODULES
+===========================================
+The ARM64 split contains only libffmpegJNI.so and libdatastore_shared_counter.so. Both are AArch64 ELF libraries. elf-inventory.json lists hashes, imported libraries and dynamic symbols. Native linear assembly is saved on C: and linked from native-disassembly-coverage.json.
+
+libffmpegJNI exposes nine Media3 FFmpeg JNI methods for version/padding/decoder support, initialization, decode, channel count, sample rate, reset and release. It contains Lavc60.3.100 and FFmpeg codec symbols. libdatastore_shared_counter exposes four AndroidX DataStore JNI methods for truncation, mapping/creation, read and atomic increment. Complete executable-section bytes were traversed by Capstone; 16 FFmpeg bytes were emitted as data. Linear disassembly is not a proof that every byte is executable or that all control flow is resolved.
+
+Not included in the supplied splits:
+vlcplayer → com.aacarplayvideo.vlcplayer.VlcEngineImpl → c++_shared, vlc, vlcjni.
+premiumtts → com.aacarplayvideo.premiumtts.TtsEngineImpl → onnxruntime, sherpa-onnx-jni.
+ttsmodel → separately requested speech model asset pack/module.
+
+i92 discovers installed modules, loads native libraries and reflects implementation classes. Interfaces VlcEngine and TtsEngine are present in base, but their downloadable implementations are not. Standalone Ghidra now adds function-by-function C-like decompiler output and function indexes for the supplied native libraries. These include library code, thunks and synthetic external stubs; decompiler success is not verified equivalent C, and inferred types/indirect calls remain imperfect. Native addresses in Ghidra may include its chosen image base. See native-decompilation-summary.json and the native-decompiled directory on C:.
+
+TRACED OPTIONAL COMPONENTS RETAINED IN SCOPE
+============================================
+optional-components.json records the available evidence and unknowns for all three components. Their presence is proven by base-app references; their actual downloadable bytes are not present.
+
+vlcplayer is an optional playback engine. Its interface creates a TextureView/surface-backed view, sets media URL/hardware decoding/options, plays/pauses/stops, reports playing state, switches fit/zoom/fill scaling and releases resources. Callbacks report playing, paused, buffering percentage and errors. we3 names VlcEngineImpl and the c++_shared/vlc/vlcjni libraries.
+
+premiumtts synthesizes speech. k93 names TtsEngineImpl with onnxruntime and sherpa-onnx-jni. TtsEngine declares init(modelDir), generate(text, speaker ID, speed), sampleRate, numSpeakers and release. kb2 clamps speaker IDs to 0..9, requests speed 1.0, clips returned float samples to -1..1, converts to signed PCM16 mono and plays them through AudioTrack. cd4 exposes ten voice selections, stores premium_tts_sid (default 3), honors tts_enabled and supports voice preview/spoken responses. Exact engine language support and model quality cannot be inferred from these interfaces.
+
+ttsmodel is a Play Asset Delivery pack. j93 expects a supertonic subdirectory under the delivered asset location and checks for tts.json. cd4 handles pending/download/transfer/completion/failure/cancellation/confirmation states, then initializes the engine once both engine and model are available. The directory name is an observed string, not proof of an exact upstream model release. These missing components remain on the list as traced, implementation unavailable; they are not marked fully reverse engineered.
+
+SECURITY-RELEVANT OBSERVATIONS AND ENGINEERING DEFECTS
+======================================================
+These are static review observations; no exploit or live backend test was performed.
+
+1. The FreeTube WebView enables JavaScript, universal file-origin access and file-to-file access while exposing a powerful native bridge. The local-file URI resolver lacks visible normalization/containment checks. Exploitability requires a reachable untrusted-script/frame path and has not been established. c41's navigation interception is a relevant mitigation.
+2. network_security_config permits cleartext globally. IP geolocation explicitly uses HTTP; user-provided IPTV/radio sources may also do so. Narrow per-domain policy would make the intended exposure clearer.
+3. License and billing preference initialization has a plain SharedPreferences fallback; the backup resources do not exclude these files or the ordinary Room database. Actual backup recoverability depends on OS/key handling and was not tested.
+4. The client contains a reversible shared API credential. Such a value cannot provide a strong confidential server-authentication boundary once distributed inside an APK. The server's additional checks are unknown.
+5. web.readable.js around lines 45315–45405 shows a file-write error handler referencing a block-scoped variable before its declaration. Exact-function controlled replay confirmed a ReferenceError on a mocked write failure. cb() writes data-location.json with uri while lb() reads directory; controlled replay confirmed an undefined directory URI after reload, while the directory-key control passed. These are confirmed isolated JavaScript defects, not installed Android device reproductions.
+6. isAppPaused returns false, so callers cannot use it to distinguish paused app state. Whether this affects playback depends on the event path.
+7. Native source output has obfuscation and type-inference artifacts, including implausible casts. A JADX warning or pseudocode oddity alone is not classified as an app defect. Use Smali for exact branch/type behavior.
+
+Evidence anchors: e41, a41, ag0, c41, ul, h92, ze0; network_security_config.xml; backup_rules.xml; data_extraction_rules.xml; web.readable.js.
+
+RUNTIME EVIDENCE AND REMAINING UNKNOWNS
+=======================================
+The connected SM_A546E reported the same versionCode 202. Its installed base.apk SHA-256 exactly matches the supplied base.apk. am start returned Status: ok, LaunchState: WARM, MobileMainActivity and TotalTime 258 ms.
+
+The subsequent UI hierarchy belonged to the phone's lock screen. Therefore launch delivery is verified, but visible app startup, dashboard behavior, network requests, media playback, licensing state and car-host behavior are not. The launch command can trigger ordinary app startup/network activity; no manual licensing requests, purchases, protection changes, package installation, root access or app-data extraction were performed.
+
+Required evidence to close remaining gaps: an unlocked device for controlled screen/playback tests; a connected compatible Android Auto host or emulator; the missing vlcplayer, premiumtts and ttsmodel artifacts; and authorized backend fixtures/documentation for server behavior. Original source equivalence cannot be proven without source and build inputs. No automation was scheduled to continue device interaction later.
+
+RECONSTRUCTION BLUEPRINT
+========================
+A rebuild should preserve the three layers independently: shared native dashboard/controller; Android Auto/media-session adapters; FreeTube web app plus its Android bridge.
+
+Data compatibility: recreate Room v13 using the recovered DDL and independently review its migration objects; preserve separate FreeTube NeDB files and document-tree mappings. Use named repository/model types corresponding to semantic-class-map.csv rather than copying obfuscated identifiers into new code.
+
+Behavioral contracts: keep media-source selection, subtitle merging, seek restoration, module IDs/order, JS promise/event completion and error semantics explicit. License/purchase validation must be implemented against authorized publisher/account APIs, not simulated as always valid. Treat external video, IPTV, radio and Stremio APIs as replaceable adapters with controlled fixtures.
+
+Verification matrix: startup and permission denial; each of the 19 module entries; local media formats; native and web YouTube playback; stream extraction failure paths; HLS/DASH/progressive selection; subtitle and background playback; file import/export and directory relocation; process restart/data migration; car connect/disconnect; mirror permission/gesture cleanup; valid/expired/offline licensing through authorized test accounts; billing cancellation/pending/acknowledgement; optional-module install/failure and missing module cases.
+
+No buildable replacement project is claimed. Decompiled Java, raw Smali and formatted JS are evidence and recovery material, not original source or a demonstrated successful rebuild.
+
+DELIVERABLES AND NAVIGATION
+===========================
+REPORT.html / REPORT.txt — this analysis.
+jadx/sources/ — 8,522 recovered Java source files, including libraries.
+jadx/resources/ — decoded base manifest/resources/assets.
+decoded-splits/ — decoded English, density and ARM64 split resources.
+extracted/ — exact extracted APK contents.
+web.readable.js — readable formatting of the original bundle.
+web-modules/ — 74 webpack module inspection fragments.
+web-inventory.json / web-routes.csv — routes, components, direct bridge calls, strings and function locations.
+database-schema.sql / database-schema.json — recovered Room v13 schema.
+semantic-class-map.csv / dashboard-modules.csv — reviewed class roles and module entry points.
+javascript-bridges.csv — 48 annotated bridge signatures and locations.
+endpoint-literals.csv — source-linked URL literals, including library/documentation strings; not all are runtime destinations.
+literal-key-candidates.csv — getter/setter string keys; heuristic, includes non-preference keys.
+simple-decompile/ — second-pass app-related class recovery and coverage.
+fallback-complete/ — all 53 originally error-marked classes recovered at instruction level, with coverage.
+dex-method-coverage.json / difficult-method-evidence.json — full method-index summary and source-anchored difficult methods.
+optional-components.json — retained VLC/TTS interfaces, model traces and missing-artifact status.
+reverse-engineering-tool-audit.csv / tool-audit-summary.json — all 138 REA tools accounted for.
+rea-analysis-summary.json — independent graph coverage and conservative limitations.
+storage-contract-tests.json / test-storage-contracts.cjs — exact-function controlled replay and outcomes.
+native-decompilation-summary.json — native function output coverage and warnings.
+decompilation-gaps.csv — original pass failure markers.
+apk-inventory.json / dex-inventory.json / elf-inventory.json / manifest-inventory.json — structural inventories.
+signature-verification.json / verification.json — integrity and recovery checks.
+runtime/ — installed-base hash, launch status and lock-screen hierarchy.
+
+Large outputs and tools are under:
+C:\Users\Abuzar\.codex\visualizations\2026\10\11\01a12c92-d041-7292-b014-603e91251da0\reverse-engineering
+smali/ — exact DEX disassembly, split by original container.
+native/ — ARM64 executable-section linear assembly.
+native-decompiled/ — Ghidra function indexes and C-like output for both supplied libraries.
+dex-method-index.json.gz — all declared DEX methods and direct call/string/branch references.
+rea-evidence.json — complete retained REA evidence (large; use the local summary for navigation).
+tools/ — locally downloaded analysis dependencies.
+
+Reproducible scripts: inventory.py, inspect-web.cjs, verify-apks.js, recover-difficult-classes.js, disassemble-native.py, build-report.py. The Python/node runtime paths and tool locations reflect this machine. No original APK was changed.

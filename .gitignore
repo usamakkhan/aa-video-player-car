@@ -1,0 +1,21 @@
+# Original APK artifacts and generated reverse engineering output stay local.
+*.apk
+analysis/*
+!analysis/REPORT.txt
+!analysis/dashboard-modules.csv
+!analysis/semantic-class-map.csv
+!analysis/database-schema.sql
+!analysis/javascript-bridges.csv
+!analysis/optional-components.json
+!analysis/verification.json
+!analysis/signature-verification.json
+
+# Android and editor outputs.
+.gradle/
+.idea/
+*.iml
+local.properties
+**/build/
+*.hprof
+*.log
+captures/

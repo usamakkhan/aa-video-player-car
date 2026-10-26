@@ -1,0 +1,35 @@
+[
+  {
+    "component": "vlcplayer",
+    "status": "traced-in-base; implementation artifact absent",
+    "delivery": "Play dynamic feature",
+    "implementation": "com.aacarplayvideo.vlcplayer.VlcEngineImpl",
+    "nativeLibraries": ["c++_shared", "vlc", "vlcjni"],
+    "purpose": "Optional VLC playback backend",
+    "contract": ["create(context, useTextureView, callbacks)", "setMedia(url, hwDecode, options)", "play/pause/stop/isPlaying", "setScale(0=fit,1=zoom,2=fill)", "release", "callbacks: playing, paused, buffering(percent), error"],
+    "sources": ["jadx/sources/defpackage/we3.java:6", "jadx/sources/defpackage/i92.java", "jadx/sources/com/aacarplayvideo/app/vlc/VlcEngine.java"],
+    "unverified": ["Exact VLC version, codecs, build flags and native implementation", "Runtime installation and playback behavior"]
+  },
+  {
+    "component": "premiumtts",
+    "status": "traced-in-base; implementation artifact absent",
+    "delivery": "Play dynamic feature",
+    "implementation": "com.aacarplayvideo.premiumtts.TtsEngineImpl",
+    "nativeLibraries": ["onnxruntime", "sherpa-onnx-jni"],
+    "purpose": "Generate spoken audio from text for voice responses/previews and speech-capable app flows",
+    "contract": ["init(modelDir)", "generate(text, speakerId, speed) -> TtsAudio(float samples, sampleRate)", "numSpeakers/sampleRate/release", "Caller clamps speaker ID to 0..9, uses speed 1.0 and default speaker preference 3", "Caller clips float samples to -1..1, converts to PCM16 mono and plays through AudioTrack"],
+    "sources": ["jadx/sources/defpackage/k93.java:6", "jadx/sources/defpackage/kb2.java", "jadx/sources/defpackage/cd4.java:582", "jadx/sources/com/aacarplayvideo/app/voice/TtsEngine.java"],
+    "unverified": ["Exact inference implementation, versions, voice quality, languages and model architecture", "Runtime download and synthesis"]
+  },
+  {
+    "component": "ttsmodel",
+    "status": "traced-in-base; asset pack absent",
+    "delivery": "Play Asset Delivery pack (not merely another engine class)",
+    "purpose": "Voice/model data used to initialize premiumtts",
+    "expectedDirectory": "<asset-pack-location>/supertonic",
+    "readinessCheck": "tts.json exists in expected directory",
+    "contract": ["Download progress/state listener handles pending, downloading, transferring, completed, failed, canceled and confirmation-required states", "Engine must initialize using the model directory after both feature and model are available"],
+    "sources": ["jadx/sources/defpackage/j93.java:37", "jadx/sources/defpackage/j93.java:56", "jadx/sources/defpackage/cd4.java:130"],
+    "unverified": ["Actual model files, hashes, exact model release, licenses and language inventory"]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "file": "base.apk",
+    "verified": true,
+    "v1": false,
+    "v2": false,
+    "v3": true,
+    "certificates": [
+      {
+        "sha256": "611b78c6d8a619363364b398f702ae3086240df58f9bb8df1e8677830e7e1b95",
+        "subject": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US",
+        "issuer": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US"
+      }
+    ],
+    "errors": "[]",
+    "warnings": "[]"
+  },
+  {
+    "file": "split_config.arm64_v8a.apk",
+    "verified": true,
+    "v1": false,
+    "v2": false,
+    "v3": true,
+    "certificates": [
+      {
+        "sha256": "611b78c6d8a619363364b398f702ae3086240df58f9bb8df1e8677830e7e1b95",
+        "subject": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US",
+        "issuer": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US"
+      }
+    ],
+    "errors": "[]",
+    "warnings": "[]"
+  },
+  {
+    "file": "split_config.en.apk",
+    "verified": true,
+    "v1": false,
+    "v2": false,
+    "v3": true,
+    "certificates": [
+      {
+        "sha256": "611b78c6d8a619363364b398f702ae3086240df58f9bb8df1e8677830e7e1b95",
+        "subject": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US",
+        "issuer": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US"
+      }
+    ],
+    "errors": "[]",
+    "warnings": "[]"
+  },
+  {
+    "file": "split_config.xxhdpi.apk",
+    "verified": true,
+    "v1": false,
+    "v2": false,
+    "v3": true,
+    "certificates": [
+      {
+        "sha256": "611b78c6d8a619363364b398f702ae3086240df58f9bb8df1e8677830e7e1b95",
+        "subject": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US",
+        "issuer": "CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US"
+      }
+    ],
+    "errors": "[]",
+    "warnings": "[]"
+  }
+]

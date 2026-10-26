@@ -1,0 +1,20 @@
+id,name,entry,behavior
+16,YouTube,ld4.e → n30 / e40 / r22,"Native YouTube interface, NewPipe extraction, alternate Innertube clients, Media3 playback."
+4,YouTube Web,zp case 7 → e41 → a41,"Local FreeTube application at file:///android_asset/index.html, Vue and Shaka."
+19,YouTube Classic,gd4.c,Mobile YouTube WebView.
+14,YouTube Kids,jd4.d,YouTube Kids WebView at www.youtubekids.com.
+15,YouTube Music,zp case 14 / am3,Music YouTube WebView and authenticated Innertube request support.
+5,Web Browser,cj0.g / i71,"General browsing, Google search, bookmarks and browsing history."
+6,TV / IPTV,uw.u / nj3 / kj3,"M3U and Xtream playlists, live/VOD/series, EPG, favorites, playback progress."
+1,File Manager,wb4.f,Local file navigation and document access.
+2,Video Player,x10.h,Local video playback and playback history.
+3,Photo Gallery,zp cases 22 / 5,Local image gallery.
+9,Radio,vz.z / kz / dm,"Radio Browser and Radio Garden discovery, stream playback, multiple proxy fallbacks."
+10,Music,fy.o / kq1 / il1,Local audio playback with lyric lookup through LRCLIB and Kugou.
+11,Speedometer,pc4.g,Location-based speed display; runtime accuracy and units not tested.
+12,Screen Mirror,a00.f / ScreenMirrorService / hs4,"MediaProjection to a display surface, AccessibilityService gesture forwarding."
+13,Podcast,cz.l / ha2,"Podcast discovery and subscriptions, feed parsing, episode progress/download metadata."
+17,News,ly.e / w22 / cd4,RSS news feeds and text-to-speech support.
+18,Movies & Series,p10.d / jy2 / g10,"Stremio-compatible add-on manifests, catalogs, metadata and stream requests; torrent-only items are marked unsupported."
+20,Vehicle Maintenance,ic4.h,"Service dates, odometer values, due dates, due mileage and notes."
+8,Settings,l00.h,"Appearance, language, module order, playback and device integration settings."

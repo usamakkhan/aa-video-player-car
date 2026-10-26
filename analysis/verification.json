@@ -1,0 +1,824 @@
+{
+  "archive_checks": [
+    {
+      "apk": "base.apk",
+      "crc_error": null,
+      "verified_extracted_files": 1100,
+      "sha256_unchanged": true
+    },
+    {
+      "apk": "split_config.arm64_v8a.apk",
+      "crc_error": null,
+      "verified_extracted_files": 4,
+      "sha256_unchanged": true
+    },
+    {
+      "apk": "split_config.en.apk",
+      "crc_error": null,
+      "verified_extracted_files": 3,
+      "sha256_unchanged": true
+    },
+    {
+      "apk": "split_config.xxhdpi.apk",
+      "crc_error": null,
+      "verified_extracted_files": 50,
+      "sha256_unchanged": true
+    }
+  ],
+  "signature_verified": true,
+  "shared_signer": true,
+  "smali": [
+    {
+      "dex": "classes.dex",
+      "expected_classes": 9897,
+      "smali_files": 9897,
+      "class_count_matches": true,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\smali\\classes"
+    },
+    {
+      "dex": "classes2.dex",
+      "expected_classes": 37,
+      "smali_files": 37,
+      "class_count_matches": true,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\smali\\classes2"
+    },
+    {
+      "dex": "classes3.dex",
+      "expected_classes": 11,
+      "smali_files": 11,
+      "class_count_matches": true,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\smali\\classes3"
+    },
+    {
+      "dex": "classes4.dex",
+      "expected_classes": 1410,
+      "smali_files": 1410,
+      "class_count_matches": true,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\smali\\classes4"
+    }
+  ],
+  "schema_executes_in_sqlite": true,
+  "application_tables": 21,
+  "java_files": 8522,
+  "dex_class_definitions": 11355,
+  "native_disassembly": [
+    {
+      "file": "libdatastore_shared_counter.so",
+      "assembly": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\native\\libdatastore_shared_counter.so.asm",
+      "sections": [
+        {
+          "section": ".text",
+          "bytes": 1636,
+          "decoded_bytes": 1636,
+          "skipdata_bytes": 0,
+          "instructions_or_data_rows": 409
+        },
+        {
+          "section": ".plt",
+          "bytes": 240,
+          "decoded_bytes": 240,
+          "skipdata_bytes": 0,
+          "instructions_or_data_rows": 60
+        }
+      ],
+      "limitation": "Linear disassembly; code/data distinction and runtime reachability are not proven. Imported/dynamic behavior is not resolved."
+    },
+    {
+      "file": "libffmpegJNI.so",
+      "assembly": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\native\\libffmpegJNI.so.asm",
+      "sections": [
+        {
+          "section": ".text",
+          "bytes": 813024,
+          "decoded_bytes": 813024,
+          "skipdata_bytes": 16,
+          "instructions_or_data_rows": 203256
+        },
+        {
+          "section": ".plt",
+          "bytes": 1408,
+          "decoded_bytes": 1408,
+          "skipdata_bytes": 0,
+          "instructions_or_data_rows": 352
+        }
+      ],
+      "limitation": "Linear disassembly; code/data distinction and runtime reachability are not proven. Imported/dynamic behavior is not resolved."
+    }
+  ],
+  "simple_decompile": [
+    {
+      "name": "bg1",
+      "fullName": "defpackage.bg1",
+      "bytes": 13854,
+      "hasFailureStub": false
+    },
+    {
+      "name": "bt",
+      "fullName": "defpackage.bt",
+      "bytes": 20976,
+      "hasFailureStub": true
+    },
+    {
+      "name": "du",
+      "fullName": "defpackage.du",
+      "bytes": 8564,
+      "hasFailureStub": false
+    },
+    {
+      "name": "ew",
+      "fullName": "defpackage.ew",
+      "bytes": 15422,
+      "hasFailureStub": false
+    },
+    {
+      "name": "fq",
+      "fullName": "defpackage.fq",
+      "bytes": 71958,
+      "hasFailureStub": false
+    },
+    {
+      "name": "ft",
+      "fullName": "defpackage.ft",
+      "bytes": 16464,
+      "hasFailureStub": false
+    },
+    {
+      "name": "gu",
+      "fullName": "defpackage.gu",
+      "bytes": 23520,
+      "hasFailureStub": false
+    },
+    {
+      "name": "hu",
+      "fullName": "defpackage.hu",
+      "bytes": 18713,
+      "hasFailureStub": false
+    },
+    {
+      "name": "kj3",
+      "fullName": "defpackage.kj3",
+      "bytes": 9646,
+      "hasFailureStub": false
+    },
+    {
+      "name": "o50",
+      "fullName": "defpackage.o50",
+      "bytes": 12588,
+      "hasFailureStub": false
+    },
+    {
+      "name": "ou",
+      "fullName": "defpackage.ou",
+      "bytes": 6905,
+      "hasFailureStub": false
+    },
+    {
+      "name": "pu1",
+      "fullName": "defpackage.pu1",
+      "bytes": 35026,
+      "hasFailureStub": true
+    },
+    {
+      "name": "pu4",
+      "fullName": "defpackage.pu4",
+      "bytes": 22013,
+      "hasFailureStub": false
+    },
+    {
+      "name": "qv",
+      "fullName": "defpackage.qv",
+      "bytes": 11649,
+      "hasFailureStub": false
+    },
+    {
+      "name": "uw",
+      "fullName": "defpackage.uw",
+      "bytes": 81080,
+      "hasFailureStub": true
+    },
+    {
+      "name": "vy",
+      "fullName": "defpackage.vy",
+      "bytes": 16112,
+      "hasFailureStub": false
+    },
+    {
+      "name": "wg1",
+      "fullName": "defpackage.wg1",
+      "bytes": 12468,
+      "hasFailureStub": false
+    },
+    {
+      "name": "ys",
+      "fullName": "defpackage.ys",
+      "bytes": 38538,
+      "hasFailureStub": false
+    },
+    {
+      "name": "zf3",
+      "fullName": "defpackage.zf3",
+      "bytes": 16335,
+      "hasFailureStub": false
+    }
+  ],
+  "fallback_complete": {
+    "requested": 53,
+    "recovered": 53,
+    "missing": [],
+    "classes": [
+      {
+        "fullName": "defpackage.ak0",
+        "source": "jadx/sources/defpackage/ak0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ak0.java",
+        "bytes": 10018,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.car.app.utils.RemoteUtils$SurfaceCallbackStub",
+        "source": "jadx/sources/androidx/car/app/utils/RemoteUtils$SurfaceCallbackStub.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/car/app/utils/RemoteUtils$SurfaceCallbackStub.java",
+        "bytes": 9121,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.exoplayer.hls.playlist.HlsPlaylistParser",
+        "source": "jadx/sources/androidx/media3/exoplayer/hls/playlist/HlsPlaylistParser.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/exoplayer/hls/playlist/HlsPlaylistParser.java",
+        "bytes": 160568,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.extractor.mp4.BoxParser",
+        "source": "jadx/sources/androidx/media3/extractor/mp4/BoxParser.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/extractor/mp4/BoxParser.java",
+        "bytes": 181217,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.extractor.text.cea.Cea708Decoder",
+        "source": "jadx/sources/androidx/media3/extractor/text/cea/Cea708Decoder.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/extractor/text/cea/Cea708Decoder.java",
+        "bytes": 82712,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.extractor.wav.WavExtractor",
+        "source": "jadx/sources/androidx/media3/extractor/wav/WavExtractor.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/extractor/wav/WavExtractor.java",
+        "bytes": 36827,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.session.MediaControllerImplBase",
+        "source": "jadx/sources/androidx/media3/session/MediaControllerImplBase.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/session/MediaControllerImplBase.java",
+        "bytes": 320652,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "androidx.media3.session.SessionPositionInfo",
+        "source": "jadx/sources/androidx/media3/session/SessionPositionInfo.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/androidx/media3/session/SessionPositionInfo.java",
+        "bytes": 20736,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.bg1",
+        "source": "jadx/sources/defpackage/bg1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/bg1.java",
+        "bytes": 24316,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.bt",
+        "source": "jadx/sources/defpackage/bt.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/bt.java",
+        "bytes": 88815,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.c93",
+        "source": "jadx/sources/defpackage/c93.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/c93.java",
+        "bytes": 20561,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "coil.intercept.EngineInterceptor",
+        "source": "jadx/sources/coil/intercept/EngineInterceptor.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/coil/intercept/EngineInterceptor.java",
+        "bytes": 58149,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "coil.intercept.EngineInterceptor$transform$3",
+        "source": "jadx/sources/coil/intercept/EngineInterceptor$transform$3.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/coil/intercept/EngineInterceptor$transform$3.java",
+        "bytes": 6989,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.cs",
+        "source": "jadx/sources/defpackage/cs.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/cs.java",
+        "bytes": 39776,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.du",
+        "source": "jadx/sources/defpackage/du.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/du.java",
+        "bytes": 15428,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.dy0",
+        "source": "jadx/sources/defpackage/dy0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/dy0.java",
+        "bytes": 17368,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.e",
+        "source": "jadx/sources/defpackage/e.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/e.java",
+        "bytes": 3390,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ea4",
+        "source": "jadx/sources/defpackage/ea4.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ea4.java",
+        "bytes": 175343,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ew",
+        "source": "jadx/sources/defpackage/ew.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ew.java",
+        "bytes": 26443,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.fq",
+        "source": "jadx/sources/defpackage/fq.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/fq.java",
+        "bytes": 147637,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ft",
+        "source": "jadx/sources/defpackage/ft.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ft.java",
+        "bytes": 33989,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.gu",
+        "source": "jadx/sources/defpackage/gu.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/gu.java",
+        "bytes": 32248,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ha1",
+        "source": "jadx/sources/defpackage/ha1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ha1.java",
+        "bytes": 56524,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.hu",
+        "source": "jadx/sources/defpackage/hu.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/hu.java",
+        "bytes": 33505,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.i22",
+        "source": "jadx/sources/defpackage/i22.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/i22.java",
+        "bytes": 40580,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.jw1",
+        "source": "jadx/sources/defpackage/jw1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/jw1.java",
+        "bytes": 238459,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.jz0",
+        "source": "jadx/sources/defpackage/jz0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/jz0.java",
+        "bytes": 3999,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.kj3",
+        "source": "jadx/sources/defpackage/kj3.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/kj3.java",
+        "bytes": 13336,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ky",
+        "source": "jadx/sources/defpackage/ky.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ky.java",
+        "bytes": 8059,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.la2",
+        "source": "jadx/sources/defpackage/la2.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/la2.java",
+        "bytes": 17216,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.lq",
+        "source": "jadx/sources/defpackage/lq.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/lq.java",
+        "bytes": 30164,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.o50",
+        "source": "jadx/sources/defpackage/o50.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/o50.java",
+        "bytes": 27111,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "org.mozilla.javascript.Interpreter",
+        "source": "jadx/sources/org/mozilla/javascript/Interpreter.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/org/mozilla/javascript/Interpreter.java",
+        "bytes": 271606,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "org.mozilla.javascript.NativeString",
+        "source": "jadx/sources/org/mozilla/javascript/NativeString.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/org/mozilla/javascript/NativeString.java",
+        "bytes": 100614,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "org.mozilla.javascript.TokenStream",
+        "source": "jadx/sources/org/mozilla/javascript/TokenStream.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/org/mozilla/javascript/TokenStream.java",
+        "bytes": 131156,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "org.mozilla.javascript.regexp.NativeRegExp",
+        "source": "jadx/sources/org/mozilla/javascript/regexp/NativeRegExp.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/org/mozilla/javascript/regexp/NativeRegExp.java",
+        "bytes": 148102,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "org.schabi.newpipe.extractor.utils.jsextractor.EcmaScriptTokenStream",
+        "source": "jadx/sources/org/schabi/newpipe/extractor/utils/jsextractor/EcmaScriptTokenStream.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/org/schabi/newpipe/extractor/utils/jsextractor/EcmaScriptTokenStream.java",
+        "bytes": 64681,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ot2",
+        "source": "jadx/sources/defpackage/ot2.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ot2.java",
+        "bytes": 14549,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ou",
+        "source": "jadx/sources/defpackage/ou.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ou.java",
+        "bytes": 13775,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ox2",
+        "source": "jadx/sources/defpackage/ox2.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ox2.java",
+        "bytes": 15992,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.pc0",
+        "source": "jadx/sources/defpackage/pc0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/pc0.java",
+        "bytes": 38668,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.pu1",
+        "source": "jadx/sources/defpackage/pu1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/pu1.java",
+        "bytes": 60614,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.pu4",
+        "source": "jadx/sources/defpackage/pu4.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/pu4.java",
+        "bytes": 42563,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.qv",
+        "source": "jadx/sources/defpackage/qv.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/qv.java",
+        "bytes": 17390,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.uv0",
+        "source": "jadx/sources/defpackage/uv0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/uv0.java",
+        "bytes": 136839,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.uw",
+        "source": "jadx/sources/defpackage/uw.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/uw.java",
+        "bytes": 216593,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.vy",
+        "source": "jadx/sources/defpackage/vy.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/vy.java",
+        "bytes": 22622,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.wg1",
+        "source": "jadx/sources/defpackage/wg1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/wg1.java",
+        "bytes": 17123,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.yc1",
+        "source": "jadx/sources/defpackage/yc1.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/yc1.java",
+        "bytes": 1771,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.ys",
+        "source": "jadx/sources/defpackage/ys.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/ys.java",
+        "bytes": 66797,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.z61",
+        "source": "jadx/sources/defpackage/z61.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/z61.java",
+        "bytes": 29327,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.zb0",
+        "source": "jadx/sources/defpackage/zb0.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/zb0.java",
+        "bytes": 6116,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      },
+      {
+        "fullName": "defpackage.zf3",
+        "source": "jadx/sources/defpackage/zf3.java",
+        "output": "D:/com.aacarplayvideo.app/analysis/fallback-complete/defpackage/zf3.java",
+        "bytes": 31435,
+        "hasFailureStub": false,
+        "hasJadxError": false
+      }
+    ]
+  },
+  "dex_method_index": {
+    "classDeclarations": 11355,
+    "methodDeclarations": 71259,
+    "directInvokeSites": 330223,
+    "invokeSitesToDeclaredMethods": 180013,
+    "uniqueReferencedTargets": 50114,
+    "invokeOpcodes": {
+      "invoke-direct": 56205,
+      "invoke-virtual": 157622,
+      "invoke-static": 75785,
+      "invoke-interface": 29876,
+      "invoke-direct/range": 3671,
+      "invoke-virtual/range": 2310,
+      "invoke-static/range": 2496,
+      "invoke-super": 1841,
+      "invoke-interface/range": 357,
+      "invoke-super/range": 60
+    },
+    "limitations": [
+      "Direct symbolic references only; virtual/interface implementation selection, reflection, invoke-custom and runtime-loaded code are not fully resolved.",
+      "Instruction count is a text-index heuristic; raw Smali remains authoritative."
+    ]
+  },
+  "storage_contract_tests": {
+    "authority": "controlled-replay",
+    "source": "web.readable.js",
+    "fragmentStartLine": 45297,
+    "fragmentSha256": "1b281e1b2f3cc23a800466c31dc85cdc7aba6fd2af178f0d0bbd0c2b8a8130b5",
+    "allAssertionsPassed": true,
+    "cases": [
+      {
+        "name": "failed write error handler",
+        "observed": "ReferenceError: Cannot access 'a' before initialization",
+        "pass": true
+      },
+      {
+        "name": "directory configuration round trip",
+        "savedKeys": [
+          "uri",
+          "files"
+        ],
+        "expectedUri": "content://fixture/tree/test",
+        "actualUri": null,
+        "pass": true,
+        "interpretation": "Confirmed defect: cb writes uri but lb reads directory"
+      },
+      {
+        "name": "directory-key control fixture",
+        "pass": true
+      }
+    ],
+    "limitations": [
+      "Exact extracted functions executed with mocked bridge; not an installed-app end-to-end test."
+    ]
+  },
+  "tool_audit": {
+    "catalogToolCount": 138,
+    "auditedToolCount": 138,
+    "byStatus": {
+      "provider-target-unsupported": 55,
+      "used": 7,
+      "not-applicable": 25,
+      "runtime-or-source-map-unavailable": 18,
+      "no-replacement-to-verify": 3,
+      "provider-unavailable": 11,
+      "not-needed-for-evidence": 6,
+      "missing-comparison-target": 10,
+      "equivalent-work-completed": 1,
+      "attempted-unavailable": 1,
+      "alternative-used": 1
+    },
+    "scope": "Current second pass; used does not count failed calls as successful analysis. Not every tool was invoked.",
+    "additionalToolsUsed": [
+      "JADX AUTO/SIMPLE/FALLBACK",
+      "baksmali",
+      "Android apksig",
+      "Python zipfile/hashlib/sqlite3",
+      "Babel AST parser/formatter",
+      "Capstone",
+      "pyelftools",
+      "ADB",
+      "standalone Ghidra headless and decompiler",
+      "Node VM controlled replay"
+    ]
+  },
+  "native_decompilation": [
+    {
+      "library": "libdatastore_shared_counter.so",
+      "sha256": "deed4546c8dafad0e68ea2c25e4c0a62ca97343614ae386b7ed2af6abb7fa999",
+      "ghidraVersion": "12.1.3",
+      "provider": "standalone Ghidra headless; not REA Windows PE-only binding",
+      "exportFinished": true,
+      "functionRecords": 38,
+      "recordsWithDecompilerOutput": 38,
+      "functionEntriesInFileBackedExecutableSections": 32,
+      "syntheticOrNonExecutableEntries": 6,
+      "jniExports": 4,
+      "jniExportNames": [
+        "Java_androidx_datastore_core_NativeSharedCounter_nativeTruncateFile",
+        "Java_androidx_datastore_core_NativeSharedCounter_nativeCreateSharedCounter",
+        "Java_androidx_datastore_core_NativeSharedCounter_nativeGetCounterValue",
+        "Java_androidx_datastore_core_NativeSharedCounter_nativeIncrementAndGetCounterValue"
+      ],
+      "ghidraImageBaseAdjustment": "0x100000",
+      "functionsWithWarningComments": 10,
+      "outputBytes": 12249,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\native-decompiled\\datastore",
+      "failedFunctions": [],
+      "gapRecovery": null,
+      "limitations": [
+        "Counts include analysis-created functions and thunks, not a proof that every function boundary was discovered.",
+        "External Android/C libraries and DWARF debug data were not supplied.",
+        "Decompiler output can contain incorrect types, unresolved indirect control flow, or warning comments; not compilable original or behaviorally equivalent C."
+      ]
+    },
+    {
+      "library": "libffmpegJNI.so",
+      "sha256": "358545f4c9aa9e2eb5fdf7694d089d2e1e61364096bdc52ff99cd1bc303a4632",
+      "ghidraVersion": "12.1.3",
+      "provider": "standalone Ghidra headless; not REA Windows PE-only binding",
+      "exportFinished": true,
+      "functionRecords": 1696,
+      "recordsWithDecompilerOutput": 1695,
+      "functionEntriesInFileBackedExecutableSections": 1602,
+      "syntheticOrNonExecutableEntries": 94,
+      "jniExports": 9,
+      "jniExportNames": [
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegGetVersion",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegGetInputBufferPaddingSize",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegLibrary_ffmpegHasDecoder",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegInitialize",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegDecode",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegGetChannelCount",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegGetSampleRate",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegReset",
+        "Java_androidx_media3_decoder_ffmpeg_FfmpegAudioDecoder_ffmpegRelease"
+      ],
+      "ghidraImageBaseAdjustment": "0x100000",
+      "functionsWithWarningComments": 404,
+      "outputBytes": 8922990,
+      "directory": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\native-decompiled\\ffmpeg",
+      "failedFunctions": [
+        {
+          "address": "001919e0",
+          "name": "FUN_001919e0",
+          "body_bytes": "2424",
+          "external": "false",
+          "decompiled": "false",
+          "error": " Recoverable Error: Unable to find unique hash for varnode",
+          "elfAddress": "0x919e0",
+          "executableSection": ".text"
+        }
+      ],
+      "gapRecovery": {
+        "assemblyAndPcode": "C:\\Users\\Abuzar\\.codex\\visualizations\\2026\\10\\11\\01a12c92-d041-7292-b014-603e91251da0\\reverse-engineering\\native-decompiled\\ffmpeg\\FUN_001919e0-evidence.txt",
+        "attempts": [
+          "decompile with eliminate-unreachable disabled",
+          "normalize",
+          "firstpass"
+        ],
+        "highLevelRecoverySucceeded": false
+      },
+      "limitations": [
+        "Counts include analysis-created functions and thunks, not a proof that every function boundary was discovered.",
+        "External Android/C libraries and DWARF debug data were not supplied.",
+        "Decompiler output can contain incorrect types, unresolved indirect control flow, or warning comments; not compilable original or behaviorally equivalent C."
+      ]
+    }
+  ]
+}

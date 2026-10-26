@@ -1,0 +1,49 @@
+signature,file,line
+void onSignInPopup(String str),jadx/sources/defpackage/a30.java,16
+"void onVideoClicked(String str, String str2)",jadx/sources/defpackage/a30.java,22
+"String appendFile(String str, String str2)",jadx/sources/defpackage/a41.java,116
+void cancelMediaNotification(),jadx/sources/defpackage/a41.java,123
+"String createFileInTree(String str, String str2)",jadx/sources/defpackage/a41.java,128
+"void createMediaSession(String str, String str2, long j, String str3)",jadx/sources/defpackage/a41.java,150
+void disableKeepScreenOn(),jadx/sources/defpackage/a41.java,160
+void enableKeepScreenOn(),jadx/sources/defpackage/a41.java,171
+void enterPromptMode(),jadx/sources/defpackage/a41.java,182
+void exitPromptMode(),jadx/sources/defpackage/a41.java,188
+"String generatePOToken(String str, String str2, String str3, String str4)",jadx/sources/defpackage/a41.java,194
+String getDirectory(String str),jadx/sources/defpackage/a41.java,203
+String getLogs(),jadx/sources/defpackage/a41.java,216
+String getSyncMessage(String str),jadx/sources/defpackage/a41.java,229
+String getSystemTheme(),jadx/sources/defpackage/a41.java,238
+void hideSplashScreen(),jadx/sources/defpackage/a41.java,243
+boolean isAppPaused(),jadx/sources/defpackage/a41.java,248
+String listFilesInDataDir(),jadx/sources/defpackage/a41.java,254
+String listFilesInTree(String str),jadx/sources/defpackage/a41.java,266
+void openExternalLink(String str),jadx/sources/defpackage/a41.java,331
+String readFile(String str),jadx/sources/defpackage/a41.java,337
+String requestDirectoryAccessDialog(),jadx/sources/defpackage/a41.java,343
+String requestOpenDialog(String str),jadx/sources/defpackage/a41.java,348
+"String requestSaveDialog(String str, String str2)",jadx/sources/defpackage/a41.java,354
+void restart(),jadx/sources/defpackage/a41.java,361
+void revokePermissionForTree(String str),jadx/sources/defpackage/a41.java,380
+"String runDecipherScript(String str, String str2, String str3)",jadx/sources/defpackage/a41.java,388
+void setScale(int i),jadx/sources/defpackage/a41.java,397
+"void themeSystemUi(String str, String str2, boolean z, boolean z2)",jadx/sources/defpackage/a41.java,417
+"void updateMediaSessionData(String str, String str2, long j, String str3)",jadx/sources/defpackage/a41.java,429
+"void updateMediaSessionState(String str, String str2)",jadx/sources/defpackage/a41.java,436
+"String writeFile(String str, String str2)",jadx/sources/defpackage/a41.java,441
+"void onInputFocused(final String str, final String str2, final boolean z, boolean z2)",jadx/sources/defpackage/bk3.java,16
+void onInputFocused(),jadx/sources/defpackage/f71.java,15
+"void onVideoClicked(String str, String str2)",jadx/sources/defpackage/h30.java,16
+void jsLog(String str),jadx/sources/defpackage/i30.java,16
+"void onMusicTrackClicked(String str, String str2)",jadx/sources/defpackage/i30.java,21
+"void queueBody(String str, String str2)",jadx/sources/defpackage/lm.java,17
+void rejectToken(String str),jadx/sources/defpackage/lm.java,24
+void returnError(String str),jadx/sources/defpackage/lm.java,30
+void returnToken(String str),jadx/sources/defpackage/lm.java,40
+void captured(String str),jadx/sources/defpackage/qj3.java,15
+String readSync(String str),jadx/sources/defpackage/qu2.java,19
+"void reject(String str, String str2)",jadx/sources/defpackage/qu2.java,28
+"void resolve(String str, String str2)",jadx/sources/defpackage/qu2.java,38
+void onInputBlurred(),jadx/sources/defpackage/ur.java,17
+void onInputFocused(String str),jadx/sources/defpackage/ur.java,23
+void onInputValueChanged(String str),jadx/sources/defpackage/ur.java,30

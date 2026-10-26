@@ -1,0 +1,59 @@
+class,role,source
+defpackage.sq,Shared native UI/controller and playback state used by phone and projected car activity,jadx/sources/defpackage/sq.java
+defpackage.st,"Home dashboard, module registry, ordering and continue/favorite panels",jadx/sources/defpackage/st.java
+defpackage.zp,Synthetic callback dispatcher for dashboard module launches,jadx/sources/defpackage/zp.java
+defpackage.rj0,"Hilt provider wiring: Room database, preferences, networking and media repositories",jadx/sources/defpackage/rj0.java
+defpackage.e41,FreeTube WebView and JavaScript bridge installation,jadx/sources/defpackage/e41.java
+defpackage.a41,Thirty FreeTube Android JavaScript interface methods,jadx/sources/defpackage/a41.java
+defpackage.c41,FreeTube navigation interception and YouTube-link events,jadx/sources/defpackage/c41.java
+defpackage.d41,FreeTube WebChromeClient handling,jadx/sources/defpackage/d41.java
+defpackage.ag0,FreeTube data URI resolution and media notification construction,jadx/sources/defpackage/ag0.java
+defpackage.q31,FreeTube file writes and append operations,jadx/sources/defpackage/q31.java
+defpackage.r31,FreeTube file reads and file picker request,jadx/sources/defpackage/r31.java
+defpackage.pt4,Dispatch native events into the WebView,jadx/sources/defpackage/pt4.java
+defpackage.r22,Native YouTube stream extraction repository,jadx/sources/defpackage/r22.java
+defpackage.w92,YouTube proof-of-origin token generation,jadx/sources/defpackage/w92.java
+defpackage.qi2,YouTube client-version configuration/cache,jadx/sources/defpackage/qi2.java
+defpackage.pi2,Remote YouTube client-version configuration fetch,jadx/sources/defpackage/pi2.java
+defpackage.k22,iOS Innertube player request,jadx/sources/defpackage/k22.java
+defpackage.l22,Android/VR player request,jadx/sources/defpackage/l22.java
+defpackage.m22,Mobile-web Innertube player request,jadx/sources/defpackage/m22.java
+defpackage.n22,Web Innertube player request,jadx/sources/defpackage/n22.java
+defpackage.ld4,Primary YouTube UI and cookie-aware WebView setup,jadx/sources/defpackage/ld4.java
+defpackage.gd4,YouTube Classic UI,jadx/sources/defpackage/gd4.java
+defpackage.jd4,YouTube Kids UI,jadx/sources/defpackage/jd4.java
+defpackage.l30,YouTube player UI and ExoPlayer initialization,jadx/sources/defpackage/l30.java
+defpackage.e40,"YouTube playback source selection, HLS/DASH/progressive and merged sources",jadx/sources/defpackage/e40.java
+defpackage.am3,YouTube Music request layer and cookie authorization,jadx/sources/defpackage/am3.java
+defpackage.ml0,DeArrow branding request,jadx/sources/defpackage/ml0.java
+defpackage.uw2,SponsorBlock client,jadx/sources/defpackage/uw2.java
+defpackage.uw,IPTV UI/orchestration; recommendation selection method recovered in FALLBACK and reviewed,jadx/sources/defpackage/uw.java
+defpackage.nj3,Xtream API client and stream metadata parsing,jadx/sources/defpackage/nj3.java
+defpackage.kj3,XMLTV EPG parser (simplified recovery available),jadx/sources/defpackage/kj3.java
+defpackage.jy2,Stremio add-on HTTP/JSON client and 15-minute catalog response cache,jadx/sources/defpackage/jy2.java
+defpackage.g10,Stremio metadata/stream presentation,jadx/sources/defpackage/g10.java
+defpackage.vz,"Radio UI, Radio Browser endpoints and Radio Garden discovery",jadx/sources/defpackage/vz.java
+defpackage.dm,Radio HTTP proxy URL strategies (synthetic class with other branches),jadx/sources/defpackage/dm.java
+defpackage.ha2,Podcast directory/discovery HTTP operations,jadx/sources/defpackage/ha2.java
+defpackage.ly,News RSS locale selection and speech orchestration,jadx/sources/defpackage/ly.java
+defpackage.gb1,Weather and IP-based geolocation fallback,jadx/sources/defpackage/gb1.java
+defpackage.j20,Detailed weather forecast request,jadx/sources/defpackage/j20.java
+defpackage.hm1,License/trial policy and stored state,jadx/sources/defpackage/hm1.java
+defpackage.fm1,Trial endpoint request/response and offline remaining-time calculation,jadx/sources/defpackage/fm1.java
+defpackage.gm1,License endpoint request/response and offline fallback,jadx/sources/defpackage/gm1.java
+defpackage.h92,Google Play billing client and encrypted ownership cache,jadx/sources/defpackage/h92.java
+defpackage.g92,Google Play purchase response handling,jadx/sources/defpackage/g92.java
+defpackage.ze0,App constants and reversibly encoded shared API credential,jadx/sources/defpackage/ze0.java
+defpackage.ul,Lazy providers including license preference storage,jadx/sources/defpackage/ul.java
+defpackage.uc,Room schema version 13 DDL and validation,jadx/sources/defpackage/uc.java
+defpackage.i92,"Dynamic module discovery, native library loading and implementation reflection",jadx/sources/defpackage/i92.java
+defpackage.we3,vlcplayer module descriptor,jadx/sources/defpackage/we3.java
+defpackage.k93,premiumtts module descriptor,jadx/sources/defpackage/k93.java
+defpackage.cd4,"Voice controls, dynamic TTS model module and UI",jadx/sources/defpackage/cd4.java
+defpackage.hs4,"Accessibility gesture forwarding, throttling, continuation and cleanup",jadx/sources/defpackage/hs4.java
+defpackage.yp2,"Screen mirror virtual display, wakelock, brightness and rotation setup",jadx/sources/defpackage/yp2.java
+defpackage.sj3,AndroidX car session license gate and first screen,jadx/sources/defpackage/sj3.java
+defpackage.i13,AndroidX car surface/virtual-display screen base,jadx/sources/defpackage/i13.java
+defpackage.o50,AndroidX car dashboard/settings views; simplified recovery available,jadx/sources/defpackage/o50.java
+defpackage.bt,"Merged coroutine dispatcher; full FALLBACK and Smali recovered, high-level types remain ambiguous",jadx/sources/defpackage/bt.java
+defpackage.pu1,Synthetic multi-role class; media-session playback-state broadcast recovered and reviewed,jadx/sources/defpackage/pu1.java
