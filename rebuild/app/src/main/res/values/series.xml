@@ -1,0 +1,10 @@
+<resources>
+    <string name="series_open">Series</string>
+    <string name="series_refresh">Refresh</string>
+    <string name="series_search">Search shows</string>
+    <string name="series_up">Back to shows</string>
+    <string name="series_season">Season %1$d</string>
+    <string name="series_error">Could not load series. Check your account, connection and provider response limits. Saved episodes are retained.</string>
+    <string name="series_hint">Refresh to load shows or episodes from your account.</string>
+    <string name="series_status">%1$s%2$s%3$s</string>
+</resources>

@@ -1,0 +1,13 @@
+# Xtream account programme guide — 2026-10-21
+
+The programme-guide dialog detects a saved Xtream account and offers Use this Xtream account’s guide. For an account without an existing guide source, this is selected by default; the user still presses Import / refresh guide to fetch it. A previously configured manual XMLTV URL remains the default. Users can switch to a manual URL or back to the account source. The choice, page, time filter and manual URL draft survive activity recreation.
+
+Account mode constructs the provider's xmltv.php URL on a network worker using the current encrypted credentials. The visible URL field is disabled and is not populated with the authenticated URL. Persisted EpgSource.url contains only an opaque account reference. Requests disallow redirects and use the existing response-size, timeout, cancellation and XMLTV parser bounds. Refresh after credential replacement reads the new account data rather than caching the old password. Failed requests, unreadable credentials and invalid guides retain the previous source and programme cache. No schema migration is needed; Room remains v8.
+
+The endpoint convention was checked against the [tellytv Xtream client implementation](https://github.com/tellytv/go.xtream-codes/blob/master/xtream-codes.go), which provides XMLTV fetching alongside the player API. This does not prove compatibility with every provider. Account errors avoid displaying credential-bearing URLs. User-entered manual URLs retain their existing storage behavior.
+
+Final app/test builds, 17 JVM tests and 62 dedicated Android 15 VM tests pass (102.850 seconds). Lint: 0 errors/33 warnings. App APK SHA-256: `40e6152ce575dfbd829e6a1cf90f0b2236f1399bb3c82556f2ca85f5111690e2`. The personal emulator was untouched.
+
+The new phone fixture imports 51 account-guide entries over HTTP gzip, verifies the disabled empty URL field and opaque saved source, pages/recreates, rotates credentials and refreshes using the new endpoint. It checks one-request redirect rejection with unchanged cache, switches to a manual source and reopens it, then verifies unreadable account credentials preserve that manual source and its three programmes. Credential encoding is also asserted. These are controlled fixtures, not a real-provider or hardware-keystore-loss result.
+
+Remaining work includes larger or streaming guide imports, scheduled refresh, provider variations, local XMLTV documents, mapping/language controls, catch-up integration and real-provider checks. Xtream series/seasons/episodes, other app modules and visual/accessibility/car-host/release gates remain open.

@@ -1,0 +1,20 @@
+<resources>
+    <string name="epg_account_source">Use this Xtream account’s guide</string>
+    <string name="epg_account_error">Could not update the account guide. Check the subscription or sign in again. The provider must supply XMLTV up to 4 MiB and 10,000 programmes without redirects. Any saved guide is retained.</string>
+    <string name="epg_show_past">Show past programmes</string>
+    <string name="epg_jump_now">Now / upcoming</string>
+    <string name="epg_no_upcoming">\nNo current or upcoming programmes. Show past programmes or refresh the guide.</string>
+    <string name="epg_updated">\nUpdated: %1$s</string>
+    <string name="epg_status">%1$s%2$s%3$s%4$s</string>
+    <string name="epg_close">Close guide</string>
+    <string name="epg_open">Programme guide</string>
+    <string name="epg_title">Guide: %1$s</string>
+    <string name="epg_url">HTTP(S) XMLTV URL for this playlist</string>
+    <string name="epg_import">Import / refresh guide</string>
+    <string name="epg_page">Page %1$d · Programmes: %2$d · %3$s</string>
+    <string name="epg_no_match">\nNo matching programmes. The channel needs a matching tvg-id in the playlist.</string>
+    <string name="epg_no_id">This channel has no tvg-id. Add the XMLTV channel ID to the playlist and refresh it to match its guide.</string>
+    <string name="epg_error">Could not update the guide. Check the HTTP(S) URL and connection. Use XMLTV up to 4 MiB and 10,000 programmes. Any saved guide is retained.</string>
+    <string name="epg_unknown_end"> · End unknown</string>
+    <string name="epg_now">Now: </string>
+</resources>

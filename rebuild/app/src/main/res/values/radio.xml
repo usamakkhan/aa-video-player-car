@@ -1,0 +1,29 @@
+<resources>
+    <string name="radio_query">Station name (blank for all)</string>
+    <string name="radio_country">Country code, e.g. US (optional)</string>
+    <string name="radio_search">Search</string>
+    <string name="radio_favorites">Favorites</string>
+    <string name="radio_previous">Previous</string>
+    <string name="radio_next">Next</string>
+    <string name="radio_loading">Loading stations…</string>
+    <string name="radio_empty">No stations found. Try another search or save a favorite.</string>
+    <string name="radio_page">%1$s · Page %2$d · %3$d stations</string>
+    <string name="radio_directory">Radio Browser</string>
+    <string name="radio_play">Play live</string>
+    <string name="radio_add">Save favorite</string>
+    <string name="radio_remove">Remove favorite</string>
+    <string name="radio_saved">Favorite saved.</string>
+    <string name="radio_removed">Favorite removed.</string>
+    <string name="radio_storage_error">Could not load or save stations. Please retry.</string>
+    <string name="radio_connection_error">Could not connect to playback. Return home and retry.</string>
+    <string name="radio_stream_error">Stream unavailable or unsupported. Retry Play live, or choose another station.</string>
+    <string name="radio_idle">Select a station to play.</string>
+    <string name="radio_buffering">Connecting: %1$s</string>
+    <string name="radio_playing">Playing: %1$s</string>
+    <string name="radio_paused">Paused: %1$s</string>
+    <string name="radio_pause">Pause</string>
+    <string name="radio_resume">Resume</string>
+    <string name="radio_stop">Stop</string>
+    <string name="radio_validation">Use a station name up to 200 characters and an optional two-letter country code.</string>
+    <string name="radio_search_error">Radio directory unavailable. Check your connection and retry.</string>
+</resources>

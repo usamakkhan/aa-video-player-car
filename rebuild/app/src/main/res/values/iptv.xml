@@ -1,0 +1,31 @@
+<resources>
+    <string name="iptv_fullscreen">Fullscreen</string>
+    <string name="iptv_exit_fullscreen">Exit fullscreen</string>
+    <string name="iptv_playback_type">Playback type</string>
+    <string name="iptv_select_channel">Choose a channel from this page</string>
+    <string name="iptv_save_type">Save type</string>
+    <string-array name="iptv_playback_types">
+        <item>Follow playlist</item>
+        <item>Live — start at stream default</item>
+        <item>On demand — resume progress</item>
+    </string-array>
+    <string name="iptv_choose_file">Choose M3U file</string>
+    <string name="iptv_local_playlist">Local playlist</string>
+    <string name="iptv_document_error">Cannot read this playlist file. Choose it again if access has expired or it was moved. Use a UTF-8 M3U file up to 4 MiB with absolute HTTP(S) channel URLs.</string>
+    <string name="iptv_name">Playlist name</string>
+    <string name="iptv_url">HTTP(S) M3U playlist URL</string>
+    <string name="iptv_import">Import playlist</string>
+    <string name="iptv_playlists">Playlists</string>
+    <string name="iptv_refresh">Refresh playlist</string>
+    <string name="iptv_remove">Remove playlist</string>
+    <string name="iptv_remove_message">Remove this playlist, channel favorites and saved viewing progress?</string>
+    <string name="iptv_search_hint">Channel or group</string>
+    <string name="iptv_favorites">Favorites only</string>
+    <string name="iptv_hint">Select a channel to play. Hold a channel to toggle its favorite.</string>
+    <string name="iptv_loading">Loading…</string>
+    <string name="iptv_page">Page %1$d · Items: %2$d</string>
+    <string name="iptv_skipped"> · Skipped invalid or duplicate entries: %1$d</string>
+    <string name="iptv_invalid">Enter a playlist name (up to 200 characters) and an HTTP(S) URL without embedded credentials.</string>
+    <string name="iptv_error">Could not load or save the playlist. Check the URL and connection. Use an extended UTF-8 M3U channel list up to 4 MiB and 10,000 entries.</string>
+    <string name="iptv_play_error">Channel unavailable or unsupported. Refresh the playlist and retry.</string>
+</resources>

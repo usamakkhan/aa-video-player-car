@@ -1,0 +1,9 @@
+<resources>
+    <string name="xtream_open">Xtream account</string>
+    <string name="xtream_title">Import Xtream account</string>
+    <string name="xtream_server">Server base URL (HTTP or HTTPS)</string>
+    <string name="xtream_user">Username</string>
+    <string name="xtream_password">Password</string>
+    <string name="xtream_import">Sign in and import</string>
+    <string name="xtream_error">Could not import the account. Check the server base URL, username, password and subscription. Sign in again if the stored key is unavailable. Up to 10,000 live/movie entries are supported. Open Series after import to load shows. Existing data is retained.</string>
+</resources>

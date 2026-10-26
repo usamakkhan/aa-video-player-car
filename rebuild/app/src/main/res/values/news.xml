@@ -1,0 +1,30 @@
+<resources>
+    <string name="news_title">News</string>
+    <string name="news_url">RSS or Atom feed URL</string>
+    <string name="news_add">Add source</string>
+    <string name="news_sources">Sources</string>
+    <string name="news_refresh">Refresh</string>
+    <string name="news_remove">Remove source</string>
+    <string name="news_remove_message">Remove this source and its cached articles?</string>
+    <string name="news_search">Search headlines</string>
+    <string name="news_unread">Unread only</string>
+    <string name="news_loading">Loading news…</string>
+    <string name="news_error">Could not load news. Check the feed URL, connection and cache limits (100 sources, 2,000 articles per source, 8 MiB of text). Existing articles are retained.</string>
+    <string name="news_empty">Add an RSS or Atom source to read news.</string>
+    <string name="news_no_body">This feed provides only a headline. Open the original article to read more.</string>
+    <string name="news_original">Open original</string>
+    <string name="news_mark_unread">Mark unread</string>
+    <string name="news_close">Close</string>
+    <string name="news_unread_title">● %1$s</string>
+    <string name="news_status">Page %1$d · Items: %2$d%3$s</string>
+    <string name="news_skipped"> · Skipped: %1$d</string>
+    <string name="news_missing">This article is no longer in the saved feed.</string>
+    <string name="news_speak">Read aloud</string>
+    <string name="news_published">Published: %1$s</string>
+    <string name="news_stop">Stop</string>
+    <string name="news_speech_loading">Preparing speech…</string>
+    <string name="news_speech_ready">Ready to read aloud</string>
+    <string name="news_speech_active">Reading aloud</string>
+    <string name="news_speech_stopped">Speech stopped</string>
+    <string name="news_speech_error">Speech is unavailable. Check the installed speech engine and device language, or try again when audio is available.</string>
+</resources>
